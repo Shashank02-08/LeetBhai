@@ -4,16 +4,13 @@ class Solution {
         int sum = 0;
         for ( int i =0;i< n;i++)
         {
-            for ( int j =n-1 ; j >=i ; j--)
+            int subsum = 0;
+            for ( int j =i ; j <n ; j++)
             {
+                subsum += arr[j];
                 if ( (j-i) % 2 == 0)
                 {
-                    int x = j;
-                    while (x >= i)
-                    {
-                        sum += arr[x];
-                        x--;
-                    }
+                    sum += subsum;
                 }
             }
         }
