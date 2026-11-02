@@ -5,27 +5,21 @@ class Solution {
 
         for (int i = 0; i< len ; i++)
         {
-            for (int j =  i; j< len ;j++)
-            {
-                if( ispalindromic(s,i,j))
-                {
-                    count++;
-                }
-            }
+            count+= expand(s,i,i);
+            count+= expand(s,i,i+1);
         } 
         return count;
     }
-    private boolean ispalindromic(String s , int left,int right)
+    private int expand(String s , int left,int right)
     {
-        while (left<right)
+        int count =0;
+        while (left>= 0 && right< s.length() && s.charAt(left) == s.charAt(right))
         {
-            if (s.charAt(left) != s.charAt(right))
-            {
-                return false;
-            }
-            left++;
-            right--;
+            count++;
+
+            left--;
+            right++;
         }
-        return true;
+        return count;
     }
 }
