@@ -16,37 +16,23 @@ class Solution {
         vowel.add('U');
 
         int mid = len/2;
+        int count = 0;
 
-        String a = s.substring(0, mid);
-        String b = s.substring(mid, len);
-
-        int count1 = 0;
-        int count2 = 0;
-
-        for ( int i = 0 ; i< a.length(); i++)
+        for ( int i = 0 ; i< len; i++)
         {
-            if (vowel.contains(a.charAt(i)))
+            if (vowel.contains(s.charAt(i)))
             {
-                count1++;
+                if (i < mid)
+                {
+                    count++;
+                }
+                else
+                {
+                    count--;
+                }
             }
         } 
 
-        for ( int j = 0 ; j < b.length(); j++)
-        {
-            if (vowel.contains(b.charAt(j)))
-            {
-                count2++;
-            }
-        } 
-
-        if (count1 == count2)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        return count == 0;
     }
 }
