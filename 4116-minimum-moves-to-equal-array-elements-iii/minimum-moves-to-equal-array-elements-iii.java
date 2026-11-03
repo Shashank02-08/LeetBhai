@@ -2,8 +2,15 @@ class Solution {
     public int minMoves(int[] nums) {
         int len = nums.length;
         int count = 0;
-        Arrays.sort(nums);
-        int max = nums[len-1];
+        int max = Integer.MIN_VALUE;
+
+        for (int j = 0; j< len ; j++)
+        {
+            if (nums[j]> max)
+            {
+                max = nums[j];
+            }
+        }
         
         // for (int i = 0; i< len ; i++)
         // {
